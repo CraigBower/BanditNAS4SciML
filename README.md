@@ -1,6 +1,6 @@
 # BanditNAS: Bandit Neural Architecture Search for Scientific Machine Learning
 
-%[![Paper](https://img.shields.io/badge/Paper-ACM%20TAAS-B31B1B.svg)](http://placeholder_link_to_paper.com)
+[![Paper](https://img.shields.io/badge/Paper-ACM%20TAAS-B31B1B.svg)](http://placeholder_link_to_paper.com)
 [![Code](https://img.shields.io/badge/GitHub-Code-100000.svg)](https://github.com/your_organization/BanditNAS-SciML)
 [![License](https://img.shields.io/github/license/your_organization/BanditNAS-SciML?color=blue)](LICENSE.md)
 
