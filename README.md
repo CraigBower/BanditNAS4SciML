@@ -33,3 +33,32 @@ The algorithm's power lies in its adaptive probability vector $\mathbf{p}_t$. Th
 ## ⚙️ Repository Structure
 
 This repository is organized to facilitate both easy demonstration and rigorous replication of the full experimental suite.
+
+***
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Python 3.8+
+* Dependencies: `numpy`, `matplotlib`, `tqdm`, and `Pillow` (for GIF generation).
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your_organization/BanditNAS-SciML.git](https://github.com/your_organization/BanditNAS-SciML.git)
+    cd BanditNAS-SciML
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Running the Demo
+
+For a basic understanding of the **BanditNAS** selection and update mechanism on a synthetic SciML loss:
+
+```bash
+jupyter notebook notebooks/simple_banditnas_demo.ipynb
