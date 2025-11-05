@@ -1,48 +1,35 @@
 # BanditNAS: Bandit Neural Architecture Search for Scientific Machine Learning
 
-[![Paper](https://img.shields.io/badge/Paper-ACM%20TAAS-B31B1B.svg)](http://placeholder_link_to_paper.com)
-[![Code](https://img.shields.io/badge/GitHub-Code-100000.svg)](https://github.com/your_organization/BanditNAS-SciML)
-[![License](https://img.shields.io/github/license/your_organization/BanditNAS-SciML?color=blue)](LICENSE.md)
+[![Paper Status: Conditional Acceptance](https://img.shields.io/badge/Paper%20Status-Conditional%20Acceptance%20(ACM%20TAAS)-B31B1B.svg)](http://placeholder_link_to_paper.com)
+[![Code](https://img.shields.io/badge/GitHub-Repository-100000.svg)](https://github.com/your_organization/BanditNAS-SciML)
+[![License: MIT](https://img.shields.io/github/license/your_organization/BanditNAS-SciML?color=blue)](LICENSE.md)
 
-## 🌟 The Challenge: Adaptive NAS for Scientific ML
+## 🎯 Abstract
 
-Neural Architecture Search (NAS) in **Scientific Machine Learning (SciML)**—such as Physics-Informed Neural Networks (PINNs) and DeepONets—presents unique challenges: the loss landscapes are often **non-stationary**, **noisy**, and **slow to converge**. Traditional pure-exploration multi-armed bandit (MAB) methods like HyperBand and Successive Halving fail because they aggressively prune promising but slow-starting architectures.
+Neural Architecture Search (NAS) for **Scientific Machine Learning (SciML)**—encompassing models like **PINNs, physics-informed GNNs, and DeepONets**—is fundamentally challenged by non-stationary and noisy loss landscapes. Existing **pure-exploration** bandit methods (e.g., HyperBand, Successive Halving) are suboptimal as they prematurely discard promising, yet slow-starting, architectures.
 
-We propose **BanditNAS**, a **non-stochastic adaptive MAB algorithm** that explicitly balances **exploration** and **exploitation** to address these issues.
+**BanditNAS** introduces a novel **non-stochastic adaptive multi-armed bandit (MAB)** approach. By leveraging a theoretically-grounded, exponentially decaying exploration parameter ($\gamma_t$), BanditNAS explicitly balances exploration and exploitation, proving to be a superior framework for optimization in adversarial and non-convex SciML search spaces.
 
-## 🚀 Key Advantages ("Wow Factor")
+## 🌟 Core Contributions & Performance
 
-BanditNAS adapts its exploration strategy based on the adversarial nature of the SciML loss landscape, resulting in significantly improved performance and robustness:
+BanditNAS's design directly addresses the non-stationary nature of SciML losses, delivering substantial performance gains across three distinct scientific applications:
 
-| Feature | Visual Placeholder | Description |
+| Application Setting | Primary Challenge Addressed | Performance Metric ($\rho(K,T)$) | BanditNAS Result | Baseline Improvement |
+| :--- | :--- | :--- | :--- | :--- |
+| **PINNs** | **Noisy Validation Losses** | Optimal Pulls Rate | **$\approx 53\%$** | **$+10\%$** over HyperBand |
+| **Physics-informed GNNs** | **Slow Convergence & Plateaus** | Optimal Pulls Rate | **$\approx 75\%$** | **$+50\%$** over HyperBand |
+| **DeepONets** | **Dynamic Optimization Procedures** | Optimal Pulls Rate | **$\approx 97\%$** | **$+95\%$** over HyperBand |
+
+### Visualization of Adaptive Selection ($\mathbf{p}_t$ Evolution)
+
+The algorithm's power lies in its adaptive probability vector $\mathbf{p}_t$. The visualization below illustrates how $\mathbf{p}_t$ smoothly transitions from uniform exploration to concentrated exploitation.
+
+| Key Mechanism | Visualization | Description |
 | :--- | :--- | :--- |
-| **Adaptive Selection** | *[Animated GIF/Video of $\mathbf{p_t}$ evolution]* | An animation showing the selection probabilities $\mathbf{p_t}$ for a search space $K$ over time $T$. The initially uniform distribution rapidly but smoothly converges, showing the core exploration-to-exploitation transition. |
-| **Regret Performance** | *[Plot of Cumulative Regret]* | A log-log plot comparing the cumulative regret of **BanditNAS** (showing lower, theoretically-driven regret) against baselines like HyperBand and EXP3, demonstrating superior theoretical and empirical efficiency. |
-| **Robustness** | *[Heatmap/Bar Chart Comparison]* | A plot demonstrating BanditNAS's consistent performance gain across various SciML settings (Noisy Loss, Slow Convergence, Dynamic Optimization). |
+| **Adaptive Selection** | ![BanditNAS p_t Evolution](banditnas_p_t_evolution.gif) | An animation demonstrating the dynamic evolution of the selection probabilities $p_{t,i}$ over time. The **Optimal** arm (highlighted in red) quickly gains probability mass as the exponentially decaying $\gamma_t$ ensures early-stage diversity while rapidly focusing the search. |
 
-## ⚙️ Installation
+***
 
-### Prerequisites
-* Python 3.8+
-* `pip`
+## ⚙️ Repository Structure
 
-### Setup
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your_organization/BanditNAS-SciML.git](https://github.com/your_organization/BanditNAS-SciML.git)
-    cd BanditNAS-SciML
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## 🔬 Running Experiments
-
-### 1. Simple Demonstration
-For a quick test and to understand the algorithm's mechanics, we recommend running the provided Jupyter notebook:
-
-```bash
-jupyter notebook notebooks/simple_banditnas_demo.ipynb
+This repository is organized to facilitate both easy demonstration and rigorous replication of the full experimental suite.
