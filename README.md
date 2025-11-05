@@ -6,7 +6,7 @@
 
 ## 🎯 Abstract
 
-Neural Architecture Search (NAS) for **Scientific Machine Learning (SciML)**—encompassing models like **PINNs, physics-informed GNNs, and DeepONets**—is fundamentally challenged by non-stationary and noisy loss landscapes. Existing **pure-exploration** bandit methods (e.g., HyperBand, Successive Halving) are suboptimal as they prematurely discard promising, yet slow-starting, architectures.
+Neural Architecture Search (NAS) for **Scientific Machine Learning (SciML)**—encompassing models like **PINNs, physics-informed GNNs, and DeepONets**—is fundamentally challenged by non-stationary and noisy loss landscapes. Existing **pure-exploration** bandit methods, such as [HyperBand](https://arxiv.org/abs/1603.06560) and [Successive Halving](https://jmlr.org/papers/volume17/15-460/15-460.pdf), are suboptimal as they prematurely discard promising, yet slow-starting, architectures.
 
 **BanditNAS** introduces a novel **non-stochastic adaptive multi-armed bandit (MAB)** approach. By leveraging a theoretically-grounded, exponentially decaying exploration parameter ($\gamma_t$), BanditNAS explicitly balances exploration and exploitation, proving to be a superior framework for optimization in adversarial and non-convex SciML search spaces.
 
